@@ -5,9 +5,9 @@ import threading
 def main():
     subprocess.call('gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true', shell=True)
     p = subprocess.Popen('xinput test 17', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    clickTime = [0, 0]
+    clickTime = [0]
     def checkTime():
-        keys = [37, 50, 62, 64, 108, 105, 133]
+        keys = [37, 50, 62, 64, 105, 108, 133]
         while True:
             out = p.stdout.readline()
             
@@ -20,7 +20,6 @@ def main():
     t = threading.Thread(target=checkTime)
     t.start()
     
-    lastTime = 0
     touchpad = True
     while True:
         inactive = time.time() - clickTime[0]
