@@ -4,6 +4,7 @@ import threading
 
 def main():
     subprocess.call('gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true', shell=True)
+    # replace 17 with the id of your keyboard as shown in output of `xinput list`
     p = subprocess.Popen('xinput test 17', shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     clickTime = [0]
     def checkTime():
@@ -24,7 +25,7 @@ def main():
     while True:
         inactive = time.time() - clickTime[0]
         # print ('inactive for', inactive)
-        if inactive > 1:            
+        if inactive > 1:            # replace 1 with `x` to disable the touchpad for `x` seconds
             if not touchpad:
                 print ('Enable touchpad')
                 subprocess.call('gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true', shell=True)
