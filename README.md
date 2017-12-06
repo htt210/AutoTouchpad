@@ -1,5 +1,5 @@
 # AutoTouchpad
-Automatically turn off tap to click while typing. Ctrl, Shift and Alt keys are excluded but their combinations are not, i.e. Alt + Tab still disable touchpad for 1 second. 
+Automatically turn off tap to click while typing on Ubuntu. Ctrl, Shift and Alt keys are excluded but their combinations are not, i.e. Alt + Tab still disable touchpad for 1 second. 
 
 The program use `xinput` to listen for keystrokes and disable the touchpad for 1 second after a normal key is pressed.
 You need to run `xinput list` to determine the id of your keyboard and replace the 17 in command `xinput test 17` with the id you found.
