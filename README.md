@@ -1,7 +1,11 @@
 # AutoTouchpad
 Automatically turn off tap to click while typing. Ctrl, Shift and Alt keys are excluded but their combinations are not, i.e. Alt + Tab still disable touchpad for 1 second. 
 
-You need to run xinput list to determine the id of your keyboard, in my case it is 17.
+The program use `xinput` to listen for keystrokes and disable the touchpad for 1 second after a normal key is pressed.
+You need to run `xinput list` to determine the id of your keyboard and replace the 17 in command `xinput test 17` with the id you found.
+
+Example output of `xinput list` is
+```
 xinput list
 ⎡ Virtual core pointer                      id=2    [master pointer  (3)]
 ⎜   ↳ Virtual core XTEST pointer                id=4    [slave  pointer  (2)]
@@ -22,3 +26,4 @@ xinput list
     **↳ AT Translated Set 2 keyboard                id=17   [slave  keyboard (3)]**
     ↳ Dell WMI hotkeys                          id=19   [slave  keyboard (3)]
     ↳ Microsoft Microsoft® Nano Transceiver v1.0    id=20   [slave  keyboard (3)]
+```
